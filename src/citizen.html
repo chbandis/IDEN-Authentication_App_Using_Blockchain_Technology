@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="./css/citizen.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- JQuery function to include header.html file -->
+    <script> $(function(){$("#includeHeader").load("/includes/header.html");}); </script>
+    <!-- QR Code Generator JS Library -->
+    <script src="includes/qrcode.min.js"></script> 
+    
+    <title>IDEN - Blockchain Authentication</title>            
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div id="includeHeader"></div>
+
+      <!-- Notification icon -->
+      <div class="container" id="citizenInfoContainer">
+        <div id="notification"></div>
+
+      <!-- Citizen's info table -->
+        <div class="row">     
+          <h3 class="text-center">Your ID info</h3>         
+          <div class="tableDiv">   
+            <table class="table table-hover" id="table">
+              <tr>
+                <th>Wallet Address</th>
+                <td id="walletAddress"></td>                        
+              </tr>
+              <tr>
+                <th>Full Name</th>
+                <td id="fullName"></td>                       
+              </tr>
+              <tr>
+                <th>Social Security No:</th>                        
+                <td id="ssn"></td>
+              </tr>
+              <tr>
+                <th>Tax Identification No:</th>                        
+                <td id="tin"></td>
+              </tr>
+              <tr>
+                <th>Date of Birth:</th>                        
+                <td id="dob"></td>
+              </tr>
+              <tr>
+                <th>Mobile Number:</th>                        
+                <td id="mobile"></td>
+              </tr>
+              <tr>
+                <th>Email:</th>                        
+                <td id="email"></td>
+              </tr>
+              <tr>
+                <th>Home Address:</th>                        
+                <td id="homeAddress"></td>
+              </tr>
+              <tr>
+                <th>Issued By:</th>                        
+                <td id="issuedBy"></td>
+              </tr>
+              <tr>
+                <th>ID Hash:</th>                        
+                <td id="idHash"></td>
+              </tr>
+              </table>  
+            </div>
+            <!-- Generate QR code button -->
+            <div class="text-center" id="generateQR"></div>          
+        </div>
+      </div>
+
+      <!-- QR Code Modal -->
+      <div class="modal fade" id="modalQRCode" tabindex="-1" role="dialog" aria-labelledby="modalQRCodeTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="modalQRCodeTitle">Wallet Address QR Code</h3>
+            </div>
+            <div class="modal-body" id="modal">
+              <div id="qrCode" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="includes/bootstrap.min.js"></script>
+    <script src="includes/web3.min.js"></script>
+    <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+    <script src="js/citizen.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+        <link rel="stylesheet" href="./css/issuer.css"> 
+        <link rel="stylesheet" href="./css/header.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- JQuery function to include header.html file -->
+        <script> $(function(){$("#includeHeader").load("/includes/header.html");}); </script>
+        
+        <title>IDEN - Blockchain Authentication</title>               
+    </head>
+    <body>
+        <!-- Navbar -->
+        <div id="includeHeader"></div>
+
+        <div class="container">
+            <div class="row">
+                <!-- Issuing Option List -->
+                <ul class="list">  
+                    <li>
+                        <a href="issuerCitizen.html" class="link">Issue a citizen's ID</a>
+                    </li>
+                    <hr/>
+                    <li>
+                        <a href="issuerHospital.html" class="link">Issue a hospital ID</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script src="includes/bootstrap.min.js"></script>
+        <script src="includes/web3.min.js"></script>
+        <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+        <script src="js/issuer.js"></script>
+        
+    </body>
+</html>

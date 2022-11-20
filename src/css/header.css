@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+
+/* Modify Custom Bootstrap Navbar */
+         
+.navbar-custom {
+    background: linear-gradient(-45deg, #000428, #004e92);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    padding: 5px 0;
+}
+
+/* Brand and Text Color */
+  
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: white;    
+    font-family: 'Space Grotesk', sans-serif; 
+    font-size: 20px;
+}
+
+/* Menu Link */
+
+.collapse ul.navbar-nav>li>a {
+    color: white;
+    font-size: 14px;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+/* Menu Link Hover */
+
+.collapse ul.navbar-nav>li>a:hover {
+    background-color: transparent;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    margin-top: 10px;
+    padding: 4px 15px; 
+}
+
+/* Menu Link Focus */
+
+.navbar-custom .navbar-nav > li > a:hover, .navbar-custom .navbar-nav > li > a:focus {
+    color: white;
+    background-color: transparent;
+} 
+
+/* Top Level Parent Link When The Drop Down Is Open */
+
+.navbar-custom .navbar-nav > .open > a, .navbar-custom .navbar-nav > .open > a:hover, .navbar-custom .navbar-nav > .open > a:focus {
+    background-color: transparent;
+    color: white;
+}
+
+/* Drop Down Menu */
+
+.navbar-custom .navbar-nav .open .dropdown-menu{
+    background: linear-gradient(-45deg, #000428, #004e92);
+    padding: 7px 10px;
+    width: 220px;
+}
+
+/* Drop Down Menu Link */
+
+.navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+    color: white;
+    padding: 8px 10px;
+    text-align: center;
+} 
+
+/* Drop Down Menu Link Hover */
+
+.navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover {
+    background-color: rgb(89, 136, 183);
+    color: white;        
+}
+
+/* Account Button */
+
+.wallet-btn {
+    margin-top: 10px;
+    padding: 7px 13px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #000;
+    background-color: white;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.wallet-btn:hover {
+    background-color: rgb(89, 136, 183);
+    box-shadow: 0px 15px 20px rgba(89, 136, 183, 0.606);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.wallet-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Mobile Menu Button (Hamburger) */
+
+.hamburger{
+    display: none;
+    position: relative;
+    z-index: 1;
+
+    user-select: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none; 
+    cursor: pointer;
+}
+
+.hamburger span{
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background-color: white;
+    border-radius: 6px;
+    z-index: 1;
+
+    transform-origin: 0 0;
+
+    transition: 0.4s;
+}
+
+.hamburger:hover span:nth-child(2) {
+    transform: translatex(10px);
+    background-color:rgb(89, 136, 183);
+}
+
+.hamburger.is-active span:nth-child(1) {
+    transform: translate(0px, -2px) rotate(45deg);
+}
+.hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(15px);
+}
+
+.hamburger.is-active span:nth-child(3) {
+    transform: translate(-3px, 3px) rotate(-45deg);
+}
+
+.hamburger.is-active:hover span {
+    background-color: rgb(89, 136, 183);
+}
+
+/* Media Queries */
+
+@media (min-width: 768px) and (max-width: 840px) {
+    .navbar-custom .navbar-collapse.collapse {
+        display: none !important;
+    }
+    .navbar-custom .navbar-collapse.collapse.in {
+        display: block !important;
+    }
+    .navbar-custom .navbar-header .collapse, .navbar-toggle {
+        display:block !important;
+    }
+    .navbar-custom .navbar-header {
+        float:none;
+    }
+    .navbar-custom .navbar-brand {
+        margin-top: 5px;
+    }
+    .hamburger {
+        right: -10px;
+    }
+}
+
+@media (max-width: 767px){
+    .hamburger {
+        display:block;
+        margin-top: 26px;
+    }
+
+    .navbar-custom .navbar-brand {
+        margin-top: 5px;
+    }
+
+    .collapse ul.navbar-nav>li>a:hover {
+        border:none;
+    }
+
+    .navbar-custom .navbar-nav .open .dropdown-menu{
+        width: auto;
+    }
+}
+
+@media (max-width: 480px){
+    .navbar-custom .navbar-brand {
+    width:300px;
+    text-align: left;
+    margin-top: -8px;
+    line-height: 1.2;
+    }
+
+    .hamburger {
+        right: -10px;
+    }
+}
+
+@media (max-width: 371px){
+    .navbar-custom .navbar-brand {
+        margin-top: -71px;
+    }
+}
+
+@media (max-width: 280px){
+    .navbar-custom{
+        width: 280px;
+    }
+}

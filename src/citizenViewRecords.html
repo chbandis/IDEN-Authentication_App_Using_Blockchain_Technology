@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+        <link rel="stylesheet" href="./css/citizenViewRnR.css">
+        <link rel="stylesheet" href="./css/header.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- JQuery function to include header.html file -->
+        <script> $(function(){$("#includeHeader").load("/includes/header.html");}); </script>
+
+        <title>IDEN - Blockchain Authentication</title>             
+    </head>
+    <body>
+        <!-- Navbar -->
+      <div id="includeHeader"></div>
+
+      <!-- Records Table -->
+        <div class="container">
+            <div class="row">           
+                <div class="tableDiv" id="recordsTableDiv">        
+                    <table class="table table-hover" id="recordsTable">
+                        <tr>
+                            <h3 class="text-center">Medical Records</h3>   
+                            <td align="center"><b>Record Name</b></td>
+                            <td align="center"><b>Treatment Type</b></td>
+                            <td align="center"><b>Date Scheduled</b></td>
+                            <td align="center"><b>Treatment Status</b></td>  
+                            <td align="center"><b>View Details</b></td>                   
+                        </tr>                    
+                    </table>   
+                </div>
+            </div>
+        </div>
+
+      <!-- Record Details Table -->
+        <div class="container" id="recordsContainer">
+            <div class="row" id="citizenInfo">  
+                <h3 class="text-center">Select the record to be displayed</h3>
+                <div class="tableDiv">
+                    <table class="table table-bordered" style="display:none" id="displaytableParent">                   
+                            <tr>
+                            <td><b>Created by (Name):</b></td>
+                            <td id="createdByName" width="60%"></td>   
+                        </tr>
+                        <tr>
+                            <td><b>Created by (Address):</b></td>
+                            <td id="createdByAddress" ></td>   
+                        </tr>                           
+                    </table>
+                </div>
+                <table  class="table table-bordered"  id="displaytable">
+                    <tr>
+                        <td colspan="2" align="center"><b>Record Details</b></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+          
+          <script src="includes/bootstrap.min.js"></script>
+          <script src="includes/web3.min.js"></script>
+          <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+          <script src="js/citizenViewRecords.js"></script>
+    </body>
+</html>

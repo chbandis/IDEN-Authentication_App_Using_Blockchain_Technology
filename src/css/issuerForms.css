@@ -1,0 +1,90 @@
+/* Submit button */
+
+#submit-btn{
+    padding: 10px 34px;
+    background: none;
+    border:2px solid #dadada;
+    color: #131313;
+    font-size: 15px;
+    position: relative;
+    transition:color 0.3s ease-in-out;
+}
+
+#submit-btn::before{
+    content: "";
+    position: absolute;
+    width:0;
+    height: 100%;
+    background: linear-gradient(-45deg, #000428, #004e92);
+    top:0;
+    left:0;
+    transition:width 0.3s ease-in-out;
+    z-index: -1;
+}
+
+#submit-btn:hover::before{
+    width: 100%;
+}
+
+#submit-btn:hover{
+    color:#fff;
+}
+
+/* Hide Arrows From Number Input */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.input-group{
+  padding-bottom: 15px;
+}
+#walletAddress{
+  left: 5px;
+}
+@media (min-width:991px) and (max-width: 1200px){
+
+  #tin{
+    margin-top: 10px;
+  }
+}
+@media (min-width:768px) and (max-width: 991px){
+  .input-group{
+    padding-bottom: 23px;
+  }
+  #walletAddress, #qrReader{
+    margin-top: 10px;
+  }
+
+  #ssn{
+    margin-top: 11px;
+  }
+  #tin{
+    margin-top: 20px;
+  }
+  #mobile{
+    margin-top: 10px;
+  }
+  #homeAddress{
+    margin-top: 9px;
+  }
+}
+@media (max-width:767px){
+  .input-group{
+    padding-bottom: 15px;
+  }
+  #walletAddress{
+    left: 0;
+  }
+  #walletAddressLabel{
+    margin-left: -15px;
+  }
+}
+  

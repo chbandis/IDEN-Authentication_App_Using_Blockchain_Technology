@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="./css/verifierViewRequests.css"> 
+    <link rel="stylesheet" href="./css/header.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- JQuery function to include header.html file -->
+    <script> $(function(){$("#includeHeader").load("/includes/header.html");}); </script>
+
+    <title>IDEN - Blockchain Authentication</title>            
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div id="includeHeader"></div>
+
+    <div class="container" id="requestsContainer">
+      <div class="row">
+
+        <!-- Wallet Address Search bar -->
+        <h3 class="text-center">Search Requests by Wallet Address</h3>
+        <form  onSubmit="App.renderRequests(); return false;">
+          <div class="wrap">
+            <div class="search">
+              <label class="control-label" for="walletAddress">Wallet Address:</label>
+              <input type="text" class="form-control" id="walletAddress" placeholder="Enter wallet address" name="walletAddress" required>
+              <button type="submit" class="searchButton"><img src="/img/search-16.png" alt="Search" id="searchIcon"></button>
+            </div>
+          </div>
+        </form>
+  
+        <!-- Requests Table -->
+        <table class="table table-hover" id="requestsTable">
+          <tr>                            
+            <th class="text-center">Date Requested</th>
+            <th class="text-center">Request Status</th>
+            <th class="text-center">View Details</th>                     
+          </tr>     
+          <tr>                                  
+            <td colspan="3" class="text-center">No requests to show</td>
+          </tr>  
+        </table> 
+
+        <!-- Request Details Table -->
+        <div class="tableDiv">
+          <table  class="table table-bordered" id="displaytable">        
+            <tr>
+              <td colspan="3" align="center"><b>Requested information</b></td>
+            </tr>
+          </table>
+        </div>
+        <div class="form-group" id="showButtons"></div>
+      </div>
+    </div>
+
+    <!-- Add Record Modal -->
+    <div class="modal fade" id="modalAddRecord" tabindex="-1" role="dialog" aria-labelledby="modalAddRecordTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="">Add Record Information</h3>
+          </div>
+          <div class="modal-body">
+            <!-- Add Record Form -->
+            <form class="form-horizontal" >
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="add-recordName">Record Name:</label>
+                <div class="col-sm-10">           
+                  <input type="text" class="form-control" id="add-recordName" placeholder="Enter record name" name="add-recordName" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="add-treatmentType">Treatment Type:</label>
+                <div class="col-sm-10">          
+                  <select class="form-control" id="add-treatmentType" name="add-treatmentType">
+                    <option value="Default" selected="true" disabled="disabled">Select treatment type</option>
+                    <option value="Curative">Curative</option>
+                    <option value="Surgical">Surgical</option>
+                    <option value="Vaccination">Vaccination</option>
+                  </select>
+                </div>
+              </div>
+              <div name="textfieldGroup" style="display:block;">
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="add-treatment">Treatment:</label>
+                  <div class="col-sm-10">          
+                    <textarea class="form-control" id="add-treatment" placeholder="Enter treatment (seperate with comma)" name="add-treatment" required></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="add-doctorName">Doctor's Name:</label>
+                  <div class="col-sm-10">          
+                    <input type="text" class="form-control" id="add-doctorName" placeholder="Enter doctor's name" name="add-doctorName" required>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check col-sm-12">
+                  <label class="form-check-label" name="nextAppointmentLabel" for="appointmentCheckbox">Schedule next Appointment</label>
+                  <input class="form-check-input" type="checkbox" value="" name="appointmentCheckbox" id="appointmentCheckbox">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-8">         
+                  <input type="datetime-local" class="form-control" id="add-nextAppointment" name="nextAppointment" min="" required>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="App.addRecord();">Add Record</button>
+          </div>
+        </div>
+      </div>
+    </div>
+          
+    <script>
+      //JQuery function for hiding the "textfieldGroup" div from the Add Record Modal
+      //when the "Vaccination" option is selected
+      $(function(){
+        $("select[name='add-treatmentType']").change(function(){
+            if ($(this).val() == "Vaccination"){
+                $("div[name='textfieldGroup']").hide();
+            } else {
+              $("div[name='textfieldGroup']").show();
+            }
+        });    
+      });
+      //JQuery function for displaying the "add-nextAppointment" datetime-local input on the Add Record Modal
+      //when its checkbox is checked
+      $(function () {
+        $('input[id="add-nextAppointment"]').hide();
+        $('input[id="appointmentCheckbox"]').on('click', function () {
+            if ($(this).prop('checked')) {
+                $('input[id="add-nextAppointment"]').fadeIn();
+            } else {
+                $('input[id="add-nextAppointment"]').hide();
+            }
+        });
+      });
+
+      //Setting the "Min" attribute to the add-nextAppointment datetime-local input
+      let today = new Date();
+      let min = today.getMinutes();
+      let hh = today.getHours();
+      let dd = today.getDate();
+      let mm = today.getMonth()+1; //January is 0!
+      let yyyy = today.getFullYear();
+      if(dd<10){
+              dd='0'+dd;
+          } 
+      if(mm<10){
+          mm='0'+mm;
+      }           
+      today = yyyy+'-'+mm+'-'+dd+"T"+hh+":"+min;
+      document.getElementById("add-nextAppointment").setAttribute("min", today);     
+    </script>      
+    <script src="includes/bootstrap.min.js"></script>
+    <script src="includes/web3.min.js"></script>
+    <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+    <script src="js/verifierViewRequests.js"></script>
+
+  </body>
+</html>

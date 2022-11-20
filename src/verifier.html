@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+        <link rel="stylesheet" href="./css/verifier.css">
+        <link rel="stylesheet" href="./css/header.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- QR Code Reader JS Library -->
+        <script src="/includes/html5-qrcode.min.js"></script>
+        <!-- JQuery function to include header.html file -->
+        <script> $(function(){$("#includeHeader").load("/includes/header.html");}); </script>
+        <!-- JQuery function to remove "required" attribute from the checkboxes after at least one checkbox is checked -->
+        <script type="text/javascript">
+            $(function(){
+                var requiredCheckboxes = $('.citizenInfo :checkbox[required]');
+                requiredCheckboxes.change(function(){
+                    if(requiredCheckboxes.is(':checked')) {
+                        requiredCheckboxes.removeAttr('required');
+                    } else {
+                        requiredCheckboxes.attr('required', 'required');
+                    }
+                });
+            });
+        </script>
+
+        <title>IDEN - Blockchain Authentication</title>     
+    </head>
+    <body>
+        <!-- Navbar -->
+        <div id="includeHeader"></div>
+
+        <!-- Submit a Request Table -->
+        <div class="container">
+            <div class="row">
+                <h3 class="text-center">Select the information to be requested</h3>
+                <form class="citizenInfo" onSubmit="App.sendRequest(); return false;">
+                    <table class="table table-bordered">
+                        <tr>    
+                            <td colspan="2" align="center"><b>Citizen's information</b></td>
+                        </tr>
+                        <tr>
+                            <div class="form-group">
+                                <label for="patientWalletAddress">Citizen's Wallet Address:</label> 
+                                <div class="input-group">                                                                
+                                    <input type="text" class="form-control" id="citizenWalletAddress" placeholder="Enter citizen's wallet address" name="citizenWalletAddress" required>
+                                    <span class="input-group-btn">
+                                        <button type="button" class='btn btn-default' data-toggle="modal" data-target="#modalQRCode">QR Scanner&nbsp;<img src='img/qr-code-16.png' alt='QR'></button>
+                                    </span>
+                                </div>
+                            </div>   
+                        </tr>
+                        <tr>
+                            <td width="10%" class="text-center"><input id="chkbox_fullName" type="checkbox" name="chkbox" required> </td>
+                            <td>Full Name</td>
+                        </tr>
+                        <tr>
+                            <td width="10%" class="text-center"><input id="chkbox_ssn" type="checkbox" name="chkbox" required> </td>
+                            <td>Social Security Number</td>
+                        </tr>
+                        <tr>
+                            <td width="10%" class="text-center"><input id="chkbox_tin" type="checkbox" name="chkbox" required> </td>
+                            <td>Tax Identification Number</td>
+                        </tr>
+                        <tr>
+                            <td width="10%" class="text-center"><input id="chkbox_dob" type="checkbox" name="chkbox" required> </td>
+                            <td>Date of Birth</td>
+                        </tr>
+                        <tr>
+                            <td width="10%" class="text-center"><input id="chkbox_mobile" type="checkbox" name="chkbox" required> </td>
+                            <td>Mobile Number</td>
+                        </tr>
+                        <tr>
+                            <td width="10%" class="text-center"><input id="chkbox_issuedBy" type="checkbox" name="chkbox" required> </td>
+                            <td>ID Issuer</td>
+                        </tr>
+                        <tr>
+                            <td width="10%" class="text-center"><input id="chkbox_idHash" type="checkbox" name="chkbox_hash" checked> </td>
+                            <td>ID Hash</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="left">
+                                <button type="button" class="select-btn" onclick="select();">Select All</button>
+                                <button type="button" class="select-btn" onclick="deSelect();">Deselect All</button>
+                            </td>
+                        </tr>                            
+                    </table>
+                    <div class="form-group">        
+                        <div class="col-sm-2">
+                            <button id="submit-btn" type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                </form>            
+            </div>
+        </div>
+
+        <!-- QR Code Reader Modal -->
+        <div class="modal fade" id="modalQRCode" tabindex="-1" role="dialog" aria-labelledby="modalQRCodeTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="modalQRCodeTitle">Wallet Address QR Code Scanner</h3>
+                    </div>
+                    <div class="modal-body" id="modal">
+                        <div id="reader"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                 
+    <script>            
+        //Select All and Deselect All functions used by the corresponding buttons
+        function select(){  
+        var chkbox=document.getElementsByName('chkbox');  
+            for(var i=0; i<chkbox.length; i++){  
+            if(chkbox[i].type=='checkbox')  
+                chkbox[i].checked=true;  
+            }  
+        }  
+            
+        function deSelect(){  
+        var chkbox=document.getElementsByName('chkbox');  
+        for(var i=0; i<chkbox.length; i++){  
+            if(chkbox[i].type=='checkbox')  
+            chkbox[i].checked=false;                  
+            }  
+        }  
+
+        //QR Code Reader function for passing the qr code value to citizenWalletAddress textfield after the scan is completed
+        //After that, the scanning process is stopped and the modal closes
+        function onScanSuccess(decodedText, decodedResult) {
+            document.getElementById('citizenWalletAddress').value = decodedText;
+            html5QrcodeScanner.clear();
+            $('#modalQRCode').modal('hide');
+        }
+        function onScanError() {
+            alert("Something went wrong");
+        }           
+
+        //Html5QrcodeScanner object creation with scanner parameters
+        var html5QrcodeScanner = new Html5QrcodeScanner( "reader", { fps: 10, qrbox: 250 });
+        html5QrcodeScanner.render(onScanSuccess);
+
+    </script>
+    <script src="includes/bootstrap.min.js"></script>
+    <script src="includes/web3.min.js"></script>
+    <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+    <script src="js/verifier.js"></script>
+    </body>
+</html> 

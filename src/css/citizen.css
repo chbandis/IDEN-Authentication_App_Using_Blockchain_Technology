@@ -1,0 +1,137 @@
+body {
+    padding-bottom: 50px;
+}
+
+/* Notification icon */
+
+.icon-wrapper{
+    width:40px;
+    height:40px;
+    position: absolute;
+    right: 50px;
+    margin-top: 13px;
+    cursor: pointer;
+}
+
+.icon-wrapper::after{
+    content: attr(data-number);
+    width: 18px;
+    height: 18px;
+    background-color: #d32b2b;
+    color:white;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.icon-wrapper:hover::after{
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity .25s;
+    transform: .25s;
+}
+
+.bell-icon{
+    max-width: 100%;
+    filter: drop-shadow(5px 3px 4px #4444dd);
+}
+
+.icon-wrapper:hover .bell-icon{
+    animation: shake 1s forwards;
+}
+
+/* Citizen's info table */
+
+.table {
+    margin: auto;
+    width: 75% !important; 
+    font-size: 15px;
+ }
+
+.table tbody{
+    display:flexbox ;
+}
+
+/* Generate QR Code Button */
+
+#generateQR-btn{
+    padding: 15px 34px;
+    background: none;
+    border:2px solid #dadada;
+    color: #131313;
+    font-size: 15px;
+    position: relative;
+    transition:color 0.3s ease-in-out;
+}
+
+#generateQR-btn::before{
+    content: "";
+    position: absolute;
+    width:0;
+    height: 100%;
+    background: linear-gradient(-45deg, #000428, #004e92);
+    top:0;
+    left:0;
+    transition:width 0.3s ease-in-out;
+    z-index: -1;
+}
+
+#generateQR-btn:hover::before{
+    width: 100%;
+}
+
+#generateQR-btn:hover{
+    color:#fff;
+}
+
+/* Modal */
+
+.modal{
+    margin-top: 80px;
+    text-align: center;
+}
+
+/* Animation Keyframes */
+
+@keyframes shake{
+    10%{
+        transform: rotate(15deg);
+    }
+    20%{
+        transform: rotate(-15deg);
+    }
+    30%{
+        transform: rotate(15deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+}
+
+/* Media Queries */
+
+@media (max-width:770px){
+    .tableDiv{
+        overflow-x:auto;    
+    }
+ }
+ @media (max-width:700px){
+    .table{
+        margin: 0 10px;
+    }
+}
+
+ @media (max-width:475px){
+    .icon-wrapper{
+        right: 25px;
+    }
+ }
+
+ @media (max-width: 300px){
+    .icon-wrapper{
+        right: 10px;
+    }
+ }

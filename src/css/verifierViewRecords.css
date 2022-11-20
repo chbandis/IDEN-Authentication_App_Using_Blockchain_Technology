@@ -1,0 +1,135 @@
+body {
+    padding-bottom: 50px;
+}
+
+/* Search Bar */
+
+.wrap{
+    width: 80%;
+    position: relative;
+    top: 40px;
+    left: 50%;
+    padding-bottom: 25px;
+    transform: translate(-50%, -50%);
+}
+
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+  
+.searchTerm {
+    width: 100%;
+    border: 3px solid #004e92;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+}
+  
+.searchTerm:focus{
+    color: #00B4CC;
+}
+  
+.searchButton {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #004e92;
+    background: linear-gradient(-45deg, #000428, #004e92);
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+  
+#walletAddress{
+    border-radius: 5px 0 0 5px;
+    height: 40px;
+}
+
+#searchIcon {
+    margin-top: -5px;
+}
+
+/* Update and End Buttons */
+
+#update-btn, #end-btn{
+    padding: 10px 34px;
+    background: none;
+    border:2px solid #dadada;
+    color: #131313;
+    font-size: 15px;
+    position: relative;
+    transition:color 0.3s ease-in-out;
+}
+
+#update-btn::before{
+    content: "";
+    position: absolute;
+    width:0;
+    height: 100%;
+    background: linear-gradient(-45deg, #000428, #004e92);
+    top:0;
+    left:0;
+    transition:width 0.3s ease-in-out;
+    z-index: -1;
+}
+
+#end-btn::before{
+    content: "";
+    position: absolute;
+    width:0;
+    height: 100%;
+    background: linear-gradient(-45deg, #1f1c18, #8e0e00);
+    top:0;
+    left:0;
+    transition:width 0.3s ease-in-out;
+    z-index: -1;
+}
+
+#update-btn:hover::before, #end-btn:hover::before{
+    width: 100%;
+}
+
+#update-btn:hover, #end-btn:hover{
+    color:#fff;
+}
+
+/* Form */
+
+form{
+    margin: auto;
+    font-size: 15px;
+}
+
+/* Update Record Modal */
+
+.modal-header{
+    display: flex;
+    justify-content: flex-start;
+}
+
+textarea { 
+    resize: vertical; 
+}
+
+/* Media Queries */
+
+@media (max-width:770px){
+    .tableDiv{
+        overflow-x:auto;   
+    }
+    
+    #recordsContainer{
+        margin: 0 10px;
+    }
+}
+@media (max-width:361px) {
+    #update-btn, #end-btn{
+        margin-top: 5px;
+    }    
+}

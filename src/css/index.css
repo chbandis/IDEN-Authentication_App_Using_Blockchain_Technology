@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+
+body{
+  background: linear-gradient(-45deg, #000428, #004e92);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	height: 100vh;
+  padding-top: 40px;
+}
+
+/* Title */
+
+.title-content{
+  display: block;
+  opacity: 0;
+  animation: revealText .6s forwards;
+  font-family: 'Space Grotesk', sans-serif; 
+  color: white;
+}
+
+.title-second{
+ animation-delay: 0.7s;
+}
+
+.title-third{
+  animation-delay: 0.8s;
+}
+
+/* Role Buttons */
+
+.role-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 40px;
+  opacity: 0;
+  animation: revealText 2.2s forwards;
+}
+
+.button{
+  background-color: transparent;
+  display: inline-block;
+  color:#fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+  width: 200px;
+  padding: 20px ;
+  border: 3px solid #3c67e3;
+  border-radius: 10px;
+}
+
+.button:hover{
+  animation: pulsate 1s ease-in-out;
+}
+
+/* Footer */
+
+.footer-distributed {
+  background-color: transparent;
+  width: 100%;
+  text-align: right;
+  padding: 20px 30px;
+  position:absolute;
+  bottom:0;  
+  animation: fadeIn 4s;
+  -webkit-animation: fadeIn 4s;
+  -moz-animation: fadeIn 4s;
+  -o-animation: fadeIn 4s;
+  -ms-animation: fadeIn 4s;
+}
+
+.footer-distributed p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.footer-distributed  {
+  float: right;
+  margin-top: 6px;
+}
+
+.footer-distributed  a {
+  display: inline;
+  width: 30px;
+  height: 30px;
+}
+
+.footer-distributed  img {
+  transition: transform .4s; 
+
+}
+.footer-distributed  img:hover{
+  transform: scale(1.1);
+  filter: drop-shadow(7px 8px 10px #282828);
+}
+
+/* Animation Keyframes */
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes revealText {
+  from{
+  transform: translateY(30px);
+  }
+  to{
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pulsate {
+  0%{
+    box-shadow: 
+    0 0 25px #5ddcff,
+    0 0 50px #4e00c2;
+  }
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+/* Media Queries */
+
+@media (max-width: 770px) {
+  .footer-distributed {
+    text-align: center;
+    float: none;
+    margin: 0 auto 20px;
+    line-height: 1.8;
+    margin-bottom: -15px;
+  }
+
+  body{
+    padding-top: 0;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-distributed {
+    margin-bottom: -50px;
+  }
+
+  body{
+    height: 110vh;
+  } 
+}
+
+@media (max-width: 438px) {
+  .footer-distributed {
+    margin-bottom: -80px;
+  }
+
+  body{
+    height: 115vh;
+  } 
+}
+
+@media (max-width: 327px){
+  .footer-distributed {
+    margin-bottom: -120px;
+  }
+  body{
+    height: 122vh;
+  } 
+}

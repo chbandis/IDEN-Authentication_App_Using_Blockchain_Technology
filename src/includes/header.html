@@ -1,0 +1,42 @@
+<nav class="navbar navbar-custom">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed hamburger" data-toggle="collapse" data-target="#navbar-menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            <a class="navbar-brand" href="index.html">IDEN - Blockchain Authentication</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#"class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="nav-label">Isuser</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="issuerCitizen.html">Issue citizen's ID</a></li>
+                        <li><a href="issuerHospital.html">Issue hospital's ID</a></li>
+                    </ul>                       
+                </li>
+                <li class="dropdown">
+                    <a href="#"class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="nav-label">Citizen</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="citizen.html">Your ID</a></li>
+                        <li><a href="citizenViewRequests.html">View ID Requests</a></li>
+                        <li><a href="citizenViewRecords.html">View Medical Records</a></li>
+                    </ul>                       
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="nav-label">Verifier</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="verifier.html">Request an ID</a></li>
+                        <li><a href="verifierViewRequests.html">View Requests</a></li>
+                        <li><a href="verifierViewRecords.html">View Medical Records</a></li>
+                    </ul>                       
+                </li>
+                <li><button type="button" class="wallet-btn" id="account-btn" onclick="App.walletConnectButton();">Connect Wallet</button></li>
+              </ul>              
+        </div>  
+    </div>
+</nav>
+
+<script src="/includes/header.js"></script>

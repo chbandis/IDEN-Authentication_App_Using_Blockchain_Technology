@@ -1,0 +1,81 @@
+body {
+    padding-bottom: 50px;
+}
+
+/* Request Details Table */
+
+#citizenInfo{
+    margin: auto;
+    width: 75% !important; 
+    font-size: 15px;
+}
+
+/* Select All and Deselect All Buttons */
+
+.select-btn {
+    background: none!important;
+    border: none;
+    padding-left: 5px;
+    padding-right: 10px;
+    color: #004e92;
+    cursor: pointer;
+  }
+
+.selector-btn:hover {
+    text-decoration: underline;
+}
+
+/* Allow and Deny Buttons */
+
+#allow-btn, #deny-btn{
+    padding: 10px 34px;
+    background: none;
+    border:2px solid #dadada;
+    color: #131313;
+    font-size: 15px;
+    position: relative;
+    transition:color 0.3s ease-in-out;
+}
+
+#deny-btn::before{
+    content: "";
+    position: absolute;
+    width:0;
+    height: 100%;
+    background: linear-gradient(-45deg, #1f1c18, #8e0e00);
+    top:0;
+    left:0;
+    transition:width 0.3s ease-in-out;
+    z-index: -1;
+}
+
+#allow-btn::before{
+    content: "";
+    position: absolute;
+    width:0;
+    height: 100%;
+    background: linear-gradient(-45deg, #000428, #004e92);
+    top:0;
+    left:0;
+    transition:width 0.3s ease-in-out;
+    z-index: -1;
+}
+
+#allow-btn:hover::before, #deny-btn:hover::before{
+    width: 100%;
+}
+
+#allow-btn:hover, #deny-btn:hover{
+    color:#fff;
+}
+
+/* Media Queries */
+
+@media (max-width:770px){
+    .tableDiv{
+        overflow-x:auto;  
+    }
+    #requestsTableDiv, #recordsTableDiv{
+        padding: 0 15px;  
+    }
+ }
