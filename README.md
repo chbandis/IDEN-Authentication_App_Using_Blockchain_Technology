@@ -1,2 +1,2 @@
-# Authentication_App_Using_Blockchain_Technology
+# Authentication App Using Blockchain Technology (Ethereum - Solidity)
 Computer Science (BSc) Final Year Project
