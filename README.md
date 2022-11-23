@@ -19,4 +19,4 @@ Below are some screenshots of the application's user interface:
 
 ![AddRecordUI](https://user-images.githubusercontent.com/91207835/203649297-361364fe-d941-4377-a78c-7bc2388cc709.png)
 
-
+**Running the application**
