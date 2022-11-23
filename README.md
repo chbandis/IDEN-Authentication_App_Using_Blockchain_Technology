@@ -20,8 +20,8 @@ Below are some screenshots of the application's user interface:
 ![AddRecordUI](https://user-images.githubusercontent.com/91207835/203649297-361364fe-d941-4377-a78c-7bc2388cc709.png)
 
 **Good to Know**
-- [Node.js] (https://nodejs.org/en/) should be installed (Python and Visual Studio Build Tools are required).
-- [Ganache] (https://github.com/trufflesuite/ganache-ui) should be installed.
-- [Metamask] (https://metamask.io/download/) should be installed.
+- [Node.js](https://nodejs.org/en/) should be installed (Python and Visual Studio Build Tools are required).
+- [Ganache](https://github.com/trufflesuite/ganache-ui) should be installed.
+- [Metamask](https://metamask.io/download/) should be installed.
 - The npm install command must be run to install the necessary modules (Duration 2-5 minutes @ ~30Mbps).
 - The Port Number of Ganache must be 8545 and the Network ID 1337.
