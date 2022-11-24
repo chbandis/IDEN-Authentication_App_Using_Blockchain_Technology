@@ -47,4 +47,4 @@ To conclude, we run the `npm run dev command` inside the application folder to r
 
 ![Lite-serverCommand](https://user-images.githubusercontent.com/91207835/203860364-1613a15d-c379-43c1-b406-3d0946de022f.png)
 
-The versions of the tools used are: Node.js v16.15.0 - npm v8.5.5 - Ganache v2.5.4. 
+*The versions of the tools used are: Node.js v16.15.0 - npm v8.5.5 - Ganache v2.5.4.* 
