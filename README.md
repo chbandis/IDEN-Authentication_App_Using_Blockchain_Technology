@@ -43,7 +43,7 @@ At the end the Powershell window should look like this:
 
 ![TruffleMigrateCommandResults](https://user-images.githubusercontent.com/91207835/203860095-ca97f6a2-6e7d-4460-a893-8d7aeffc880e.png)
 
-To conclude, we run the `npm run dev command` inside the application folder to run the **local server** ([lite-server](https://github.com/johnpapa/lite-server)). The result should look like this:
+To conclude, we execute the `npm run dev` command inside the application folder to run the **local server** ([lite-server](https://github.com/johnpapa/lite-server)). The result should look like this:
 
 ![Lite-serverCommand](https://user-images.githubusercontent.com/91207835/203860364-1613a15d-c379-43c1-b406-3d0946de022f.png)
 
