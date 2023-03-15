@@ -25,7 +25,7 @@ Below are some screenshots of the application's user interface:
 - [Node.js](https://nodejs.org/en/) should be installed (Python and Visual Studio Build Tools are required).
 - [Ganache](https://github.com/trufflesuite/ganache-ui) should be installed.
 - [Metamask](https://metamask.io/download/) should be installed.
-- The npm install command must be run to install the necessary modules (Duration 2-5 minutes @ ~30Mbps).
+- The npm install command must be executed to install the necessary modules (Duration 2-5 minutes @ ~30Mbps).
 - The Port Number of Ganache must be 8545 and the Network ID 1337.
 - The Show test networks option must be enabled in Metamask and the active network must be Localhost 8545.
 - Application url (after running the local server) is http://localhost:3000.
