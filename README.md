@@ -1,7 +1,36 @@
 # IDEN (Identification Eden) - Authentication App Using Blockchain Technology (Ethereum - Solidity)
-IDEN is an identification system that makes use of Blockchain technology. It was developed on the Ethereum Blockchain and takes advantage of any features implied with it. It has three roles, the "Issuer", the "Citizen" and the "Verifier", and benefits from smart contracts to carry out its functions. The issuer is responsible for entering the identity details of the citizen and the verifier on the Blockchain. The data is entered through a form in the application environment of the issuer and then stored in the wallet corresponding to the address provided by the citizen or verifier. Then, the citizen from the respective environment, can check his data and respond to incoming requests to share his data. Finally, the verifier has the ability, through his own environment, to request the data of a citizen, confirm their ownership and perform the desired actions. In terms of security, it inherits all the features of smart contracts, so all data is encrypted, with constant checks to avoid possible errors.
+IDEN is an identification system that makes use of Blockchain technology. It was developed on the Ethereum Blockchain and takes advantage of any features implied with it. The main problem that the application is required to address is the improper management of personal data by organizations that have gained access to it and the ways in which Blockchain technology can benefit in maintaining its integrity and security.
 
-Below are some screenshots of the application's user interface:
+## Table of Contents
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
+- [Screenshots](#screenshots)
+- [Running the Application](#running-the-application)
+- [Contact](#contact)
+
+## Features
+- Exclusive control of the details of an identity by its owner.
+- Immediate and valid confirmation of the ownership of an identity directly from the verifier, without the intervention of a third party.
+- Verifying the details of an identity via Blockchain by comparing the hash of the provided data with the hash corresponding to the issuer's smart contract and checking the wallet address of the identity issuer when requested.
+- Add/Create a medical history record for the citizen.
+- Keeping identity and medical history in the citizen's wallet to enhance privacy.
+- Ability to create and read the QR code extracted from the holder's wallet address
+
+## Project Structure
+The project consists of three roles, the "Issuer", the "Citizen" and the "Verifier", and benefits from smart contracts to carry out its functions. The issuer is responsible for entering the identity details of the citizen and the verifier on the Blockchain. The data is entered through a form in the application environment of the issuer and then stored in the wallet corresponding to the address provided by the citizen or verifier. Then, the citizen from the respective environment, can check his data and respond to incoming requests to share his data. Finally, the verifier has the ability, through his own environment, to request the data of a citizen, confirm their ownership and perform the desired actions. In terms of security, it inherits all the features of smart contracts, so all data is encrypted, with constant checks to avoid possible errors.
+
+## Technologies Used
+- Ganache
+- Truffle
+- Solidity
+- HTML5, CSS3, Javascript
+- Node.js
+- Web3.js
+- Chai
+- Infura
+
+## Screenshots
 
 <img width="865" alt="homepage" src="https://user-images.githubusercontent.com/91207835/203648840-3dc6e79b-9fb7-44b6-b9e1-0379d72fddde.png">
 
@@ -21,7 +50,7 @@ Below are some screenshots of the application's user interface:
 
 ![UseCaseStoryboard](https://user-images.githubusercontent.com/91207835/203861545-ddd0b306-a031-4770-826c-f083c54d731f.png)
 
-**Running the Application**
+## Running the Application
 - [Node.js](https://nodejs.org/en/) should be installed (Python and Visual Studio Build Tools are required).
 - [Ganache](https://github.com/trufflesuite/ganache-ui) should be installed.
 - [Metamask](https://metamask.io/download/) should be installed.
@@ -48,3 +77,6 @@ To conclude, we execute the `npm run dev` command inside the application folder 
 ![Lite-serverCommand](https://user-images.githubusercontent.com/91207835/203860364-1613a15d-c379-43c1-b406-3d0946de022f.png)
 
 *The versions of the tools used are: Node.js v16.15.0 - npm v8.5.5 - Ganache v2.5.4.* 
+
+## Contact
+Feel free to reach out to me via [chr.bandis@gmail.com](mailto:chr.bandis@gmail.com) or connect with me on [LinkedIn](https://www.linkedin.com/in/chbandis/).
